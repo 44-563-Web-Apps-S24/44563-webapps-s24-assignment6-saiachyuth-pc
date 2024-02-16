@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Animal Game-Lab6</title>
+    </head>
+    <body>
+        <h1>Animal game by Sai Achyuth Konda</h1>
+        <form>
+            <label for="The hidden animal type" style="font-size: 100%; ">The hidden animal type: </label>
+            <input type="password" id="The hidden animal type" value="Chicken">
+            <br>
+        
+            <label for="Guess the animal" style="font-size: 100%; ">Guess the animal: </label>
+            <input style="font-size: 100%; " type="text" id="Guess the animal">
+            <br>
+            <br><button type="button" onclick="checkAnimal()" style="font-size: 100%; font-family: cursive;">
+                Check the guess</button>
+        </form>
+        <br>
+    <div id="result" style="font-size: 100%;"></div>
+    <script>
+        let wrong = 0;
+        let correct = 0;
+        function checkAnimal() {
+            const hiddenAnimalInput = document.getElementById('The hidden animal type');
+            const guessAnimalInput = document.getElementById('Guess the animal');
+            const resultElement = document.getElementById('result');
+            if (hiddenAnimalInput.value === guessAnimalInput.value){
+                correct++;
+                alert("Ruff ruff");
+            } else {
+                wrong++;
+                alert("Grrrr");
+            }
+            resultElement.innerHTML = `<p>Correct guess: ${correct}, Wrong guess: ${wrong}</p>`; // Update result element checked by condition using if else
+            guessAnimalInput.value = '';
+            }
+    </script>
+    </body>
+</html>
