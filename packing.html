@@ -55,7 +55,13 @@
             document.getElementById('packresult').innerHTML = JSON.stringify(my_pack);
         }
 
-
+        function updatePack() {
+            console.log("Updating pack");
+            const updateResult = document.getElementById("updateResult");
+            my_pack.month = document.getElementById("travelMonth").value;
+            my_pack.price = document.getElementById("price").value;
+            updateResult.innerHTML = JSON.stringify(my_pack);
+        }
 
     </script>
 
