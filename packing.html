@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Packing</title>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Sai Achyuth Konda packs for a trip</h2>
+        <form id="checkboxForm">
+            <div class="form-group form-check">
+                <input class="form-check-input" type="checkbox" id="light" name="light" value="True">
+                <label class="form-check-label" for="light">Pack light</label>
+            </div>
+            <div class="form-group form-check">
+                <input class="form-check-input" type="checkbox" id="carry" name="carry" value="True">
+                <label class="form-check-label" for="carry">Carry on</label>
+            </div>
+            <div class="form-group form-check">
+                <input class="form-check-input" type="checkbox" id="tablet" name="tablet" value="False">
+                <label class="form-check-label" for="tablet">Tablet</label>
+            </div>
+            <br>
+            <button class="btn btn-primary" type="button" onclick="selectPack()">Select for packing</button>
+        </form>
+
+        <p id="packresult"></p>
+
+
+        <form id="updateForm">
+            <div class="form-group">
+                <label for="travelMonth">Enter travel month: </label>
+                <input class="form-control" type="text" id="travelMonth" name="travelMonth" value="May">
+            </div>
+            <div class="form-group">
+                <label for="price">Enter price: </label>
+                <input class="form-control" type="text" id="price" name="price">
+            </div>
+            <button class="btn btn-primary" type="button" onclick="updatePack()">Update the pack</button>
+        </form>
+        <div id="updateResult"></div>
+    </div>
+
+    <script>
+        let my_pack = {};
+
+        function selectPack() {
+            my_pack = {};
+
+            my_pack.light = document.getElementById('light').checked;
+            my_pack.carry = document.getElementById('carry').checked;
+            my_pack.tablet = document.getElementById('tablet').checked;
+
+            document.getElementById('packresult').innerHTML = JSON.stringify(my_pack);
+        }
+
+
+
+    </script>
+
+</body>
+
+</html>
