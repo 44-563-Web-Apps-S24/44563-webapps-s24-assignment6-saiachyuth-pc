@@ -4,6 +4,12 @@
         <title>Animal Game-Lab6</title>
     </head>
     <body>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" 
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+      <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" 
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" 
+        integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
         <h1>Animal game by Sai Achyuth Konda</h1>
         <form>
             <label for="The hidden animal type" style="font-size: 100%; ">The hidden animal type: </label>
@@ -13,7 +19,7 @@
             <label for="Guess the animal" style="font-size: 100%; ">Guess the animal: </label>
             <input style="font-size: 100%; " type="text" id="Guess the animal">
             <br>
-            <br><button type="button" onclick="checkAnimal()" style="font-size: 100%; font-family: cursive;">
+            <br><button type="button" class="btn btn-primary " onclick="checkAnimal()" style="font-size: 100%; font-family: cursive;">
                 Check the guess</button>
         </form>
         <br>
@@ -27,14 +33,22 @@
             const resultElement = document.getElementById('result');
             if (hiddenAnimalInput.value === guessAnimalInput.value){
                 correct++;
+                console.log(correct);
                 alert("Ruff ruff");
             } else {
                 wrong++;
+                console.log(wrong);
                 alert("Grrrr");
+            }
+            //Ran out of guesses condition
+            if(wrong>correct){
+            // console.log(`Tri-ggered`);
+            alert(`Sorry, too many wrong guesses.`);
             }
             resultElement.innerHTML = `<p>Correct guess: ${correct}, Wrong guess: ${wrong}</p>`; // Update result element checked by condition using if else
             guessAnimalInput.value = '';
-            }
+        }
+        
     </script>
     <br>
     <div class="images container">
@@ -59,8 +73,8 @@
                 break;
             default:
                 break;
-        }
     }
+}
     </script>
     </body>
 </html>
